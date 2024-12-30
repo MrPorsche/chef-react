@@ -1,7 +1,10 @@
 import React from "react";
+import List from "./sub-comp/List.jsx";
+import Recipe from "./sub-comp/Recipe.jsx";
 
 export default function Form() {
     const [listItems, setListItems] = React.useState([]);
+    const [showRecipe, setShowRecipe] = React.useState(false);
 
     const listElement = listItems.map((item) => {
         return <li key={item}>{item}</li>
@@ -12,9 +15,9 @@ export default function Form() {
         setListItems(listItem => [...listItem, newItem]);
     }
 
-    // function handleRemove() {
-    //     setListItems([])
-    // }
+    function getRecipe() {
+        setShowRecipe(prevState => !prevState);
+    }
 
     return (
         <main>
@@ -26,22 +29,12 @@ export default function Form() {
                     aria-label="Add ingredient"
                 />
                 <button className="add">Add ingredient</button>
-                {/* <div className="btns">
-                    <button className="add" type="submit">Add ingredient</button>
-                    <button className="clear" type="button" onClick={handleRemove}>Clear List</button>
-                </div> */}
             </form>
-            <section>
-                <h2>Ingredients on hand:</h2>
-                <ul className="list" aria-live="polite">{listElement}</ul>
-                <div className="recipe-container">
-                    <div>
-                        <h3>Ready for a recipe?</h3>
-                        <p>Generate a recipe based on provided list of items.</p>
-                    </div>
-                    <button>Get a recipe!</button>
-                </div>
-            </section>
+            {listElement.length ? <List element={listElement} getRecipe={getRecipe}/> : <section>
+                <img src="/cook.gif" alt="cooking_image" />
+            </section>}
+            {/* {showRecipe && <h1>Getting recipe!</h1>} */}
+            {showRecipe && <Recipe />}
         </main>
     );
 }

@@ -121,4 +121,8 @@ section .recipe-container button {
   background: #D17557;
   font-family: Inter, sans-serif;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+section img {
+  width: 450px;
+  margin-left: 30%;
 }/*# sourceMappingURL=App.css.map */
