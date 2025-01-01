@@ -6,10 +6,9 @@
 
 body {
     width: 100%;
-    height: 100vw;
+    height: auto;
     margin: 0;
     color: #FFF;
-    overflow: hidden;
     background-color: #000;
     font-family: Inter, sans-serif;
 }
@@ -146,66 +145,22 @@ section {
     }
 }
 
-// .btns {
-//     display: flex;
-//     gap: 10px;
+// AI RECIPE
+.ai-recipe-container {
+    color: #C0C0C0;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 500;
 
-//     button {
-//         width: 150px;
-//         padding: 10px;
-//         cursor: pointer;
-//         color: #FAFAF8;
-//         background-color: #000;
-//         border-radius: 6px;
-//         border: 1px solid #FAFAF8;
-//         font-family: Inter, sans-serif;
+    .banner {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-//         &:hover {
-//             color: #000;
-//             background-color: #FAFAF8;
-//         }
+    ul, ol {
 
-//         &:active {
-//             color: #FAFAF8;
-//             background-color: #000;
-//         }
-//     }
-
-//     .add::before {
-//         content: "+";
-//         margin-right: 5px;
-//     }
-    
-//     .clear::before {
-//         content: "-";
-//         margin-right: 5px;
-//     }
-// }
-
-// Pad Challenge
-
-// main {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     .pad-container {
-//         display: grid;
-//         grid-template-columns: repeat(4, 100px);
-//         grid-template-rows: repeat(2, 100px);
-//         gap: 200px;
-
-//         button {
-//             width: 200px;
-//             height: 200px;
-//             border: 3px solid #FFF;
-//             border-radius: 5px;
-//             cursor: pointer;
-//             opacity: 0.1;
-
-//             &.on {
-//                 opacity: 1;
-//             }
-//         }
-//     }
-// }
+        li {
+            margin-bottom: 8px;
+        }
+    }
+}
