@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import List from "./sub-comp/List.jsx";
 import Recipe from "./sub-comp/Recipe.jsx";
 import { getRecipeFromMistral } from "../ai.js";
 
 export default function Form() {
-    const [listItems, setListItems] = React.useState([]);
-    const [showRecipe, setShowRecipe] = React.useState("");
+    const [listItems, setListItems] = useState([]);
+    const [showRecipe, setShowRecipe] = useState("");
+    const recipeSection = useRef(null);
 
     const listElement = listItems.map((item) => {
         return <li key={item}>{item}</li>
@@ -21,6 +22,12 @@ export default function Form() {
         setShowRecipe(generatedRecipe);
     }
 
+    useEffect(() => {
+        if (showRecipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({ behavior: "smooth"});
+        }
+    }, [showRecipe]);
+
     return (
         <main>
             <form action={addItems}>
@@ -32,7 +39,7 @@ export default function Form() {
                 />
                 <button className="add">Add ingredient</button>
             </form>
-            {listElement.length ? <List element={listElement} getRecipe={getRecipe}/> : <section>
+            {listElement.length ? <List element={listElement} getRecipe={getRecipe} ref={recipeSection}/> : <section>
                 <img src="/cook.gif" alt="cooking_image" />
             </section>}
             {/* {showRecipe && <h1>Getting recipe!</h1>} */}
